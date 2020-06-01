@@ -1,4 +1,4 @@
-5 - n
-3 2 4 3 1 - rozmiar
-5 3 4 4 2 - wartosc
+4 - n
+1 5 4 5 - rozmiar
+4 2 7 3 - wartosc
 8 - b
