@@ -1,6 +1,8 @@
 import os
 from urllib.request import urlopen
 
+# this program upload
+
 class Solution:
 
     def __init__(self, size_list, value_list, backpack_size):
@@ -32,19 +34,23 @@ class Solution:
             return self.solution_matrix[n][backpack_size]
 
     def greedy_pack_it(self, n, backpack_size):
-        # first step is too calculate value to size ratio
+        # function find good but not always the most
+        # efficient combination
 
         solution_list = []
         size = 0
         solution = 0
 
         for x in range(n):
+            # create list of sublists with element value, size and value to size ratio
             temp = [self.value_list[x], self.size_list[x], (self.value_list[x] / self.size_list[x])]
             solution_list.append(temp)
 
         solution_list = sorted(solution_list, key = lambda x: x[2], reverse = True)
+        # sort sublist by value to size ratio in reversed order
 
         for i in range(n):
+            # upgrade solution if it is possible -> if sum of sizes with new element is not bigger then backpack
             if size + solution_list[i][1] <= backpack_size:
                 size += solution_list[i][1]
                 solution += solution_list[i][0]
